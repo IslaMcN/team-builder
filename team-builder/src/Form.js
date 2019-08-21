@@ -20,8 +20,7 @@ const Employees = (props) => {
         ...worker,
         id: Date.now()
     }
-    props.addNewWorker(newWorker);
-    setWorker({name: "", email: "", DOB:"",shift: "", title: ""})
+   
     return(
     <form>
         <label>Name</label>
