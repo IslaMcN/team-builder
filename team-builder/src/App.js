@@ -1,19 +1,19 @@
 import React, {useState} from 'react';
-import List from './Peeps';
+import List from './List';
 import './App.css';
-import employees from './Form';
+import Employees from './Form';
+import Peeps from './Peeps';
 
 function App() {
-  const [workers, setWorkers] = useState(data);
+  const [worker, setWorker] = useState([{name: "Zelda", email: "doggo@gmail.com", DOB: "02/05/1020", shift: "null - LOA", title: "Front-End Developer" }]);
   const addNewWorker = person => {
-    setWorkers([...workers,person])
+    setWorker([...worker,person])
   }
   return (
     <div className="App">
-       <h1>Employee Data Input</h1>
-       <List workerList={workers} />
-       <Form addNewWorker={addNewWorker}/>
-      
+      <Employees>
+       (worker.map(person => <List person={person}/>))
+       </Employees>
     </div>
   );
 }

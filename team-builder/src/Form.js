@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {handler} from './App';
 
-function employees (props) {
+
+const Employees = (props) => {
     const [worker, setWorker] = useState ({
         name:"",
         email:"",
@@ -14,10 +14,11 @@ function employees (props) {
     }
     const submit = event => {
         event.preventDefault();
-        const newWorker ={
-            ...worker,
-            id: Date.now()
-        }
+        
+    }
+    const newWorker ={
+        ...worker,
+        id: Date.now()
     }
     props.addNewWorker(newWorker);
     setWorker({name: "", email: "", DOB:"",shift: "", title: ""})
@@ -27,35 +28,35 @@ function employees (props) {
         <input type="text"
         name="Name"
         placeholder="Name"
-        value={workers.name}
+        value={worker.name}
         onChange={handler}
         />
         <label>Email</label>
         <input type="email"
         name="email"
         placeholder="youremail@here.com"
-        value={workers.email}
+        value={worker.email}
         onChange={handler}
         />
         <label>Birthdate</label>
         <input type="text"
         name="DOB"
         placeholder="MM/DD/YYYY"
-        value={workers.DOB}
+        value={worker.DOB}
         onChange={handler}
         />
         <label>Shift</label>
         <input type="text"
         name="Shift"
         placeholder="Shift"
-        value={workers.shift}
+        value={worker.shift}
         onChange={handler}
         />
         <label>Job Title</label>
         <input type="text"
         name="Title"
         placeholder="Job Title"
-        value={workers.title}
+        value={worker.title}
         onChange={handler}
         />
         <button type="submit">Enter</button>
@@ -64,4 +65,4 @@ function employees (props) {
     )
 }
 
-export default employees
+export default Employees
