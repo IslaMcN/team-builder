@@ -2,27 +2,27 @@ import React, {useState} from 'react';
 
 
 const Employees = (props) => {
-    const [worker, setWorker] = useState ({
-        name:"",
+    const { submitPerson, initialPerson, buttonText, history} = props;
+    const [worker, setWorker] = useState (initialPerson ||
+       { name:"",
         email:"",
         DOB:"",
         shift:"",
-        title:""
-    })
+        title:""}
+    )
     const handler = event => {
         setWorker({...worker, [event.target.name]: event.target.value})
     }
-    const submit = event => {
+    
+    const handleSubmit = event => {
         event.preventDefault();
-        
-    }
-    const newWorker ={
-        ...worker,
-        id: Date.now()
+        submitPerson(worker);
+        setWorker({name:"", email:"", DOB:"",shift:"", title:""});
+        history.push("/");
     }
    
     return(
-    <form>
+    <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input type="text"
         name="Name"
@@ -58,10 +58,10 @@ const Employees = (props) => {
         value={worker.title}
         onChange={handler}
         />
-        <button type="submit">Enter</button>
+        <button type= "submit">Enter</button>
     </form>
    
-    )
-}
+    );
+};
 
 export default Employees

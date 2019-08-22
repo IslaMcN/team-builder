@@ -19,3 +19,7 @@ const Peeps = [
     DOB: "09/15/2018",
     shift: "Back-half nights",
     title: "Front-End Developer"}]
+
+    console.log(Peeps);
+
+export default Peeps;
